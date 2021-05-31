@@ -1,24 +1,21 @@
 <?php
 
-
 namespace App\Observers;
 
-use Illuminate\Support\Str;
 use App\Models\Plan;
+use Illuminate\Support\Str;
 
 class PlanObserver
 {
     /**
-     * Handle the plan "creting" event.
+     * Handle the plan "creating" event.
      *
      * @param  \App\Models\Plan  $plan
      * @return void
      */
     public function creating(Plan $plan)
     {
-        //antes de cadstrar um plano atualizo URL
-        $plan->url = Str::kebab($plan->name); //inserir o URL com o nome
-
+        $plan->url = Str::kebab($plan->name);
     }
 
     /**
@@ -29,10 +26,6 @@ class PlanObserver
      */
     public function updating(Plan $plan)
     {
-        //antes de cadstrar um plano
-$plan->url = Str::kebab($plan->name);
-
+        $plan->url = Str::kebab($plan->name);
     }
-
-
 }

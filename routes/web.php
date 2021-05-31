@@ -79,9 +79,12 @@ Route::prefix('admin')
 
     });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    /**
+     * site
+     */
+
+Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
+Route::get('/', 'Site\SiteController@index')->name('site.home');
 
 /**
  * Auth routes
